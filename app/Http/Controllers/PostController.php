@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class PostController extends Controller
 {
@@ -15,6 +16,8 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        dd('ok');
+        $this->validate($request, [
+            'body'=> 'required',
+        ]);
     }
 }
